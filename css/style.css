@@ -22,6 +22,7 @@
 	background-color: #a34b4a;
 	border-bottom: 2px solid white;
 	border-right: 2px solid white;
+	box-sizing: border-box;
 	color: black;
 	font-size: 24px;
 	font-weight: bold;
