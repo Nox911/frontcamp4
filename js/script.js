@@ -35,43 +35,45 @@ function createNewsListContainer(newsData) {
 	return newsListContainer;
 }
 
-function addElementToMainContainer(type, elementData) {
+function addElementToMainContainer(type, data) {
 	let mainContainer = document.getElementById('main-container');
 	let element;
 
 	element =
 		type === 'news'
-			? createNewsListContainer(elementData)
+			? createNewsListContainer(data)
 			: createErrorMessageContainer();
 	mainContainer.appendChild(element);
 }
 
-function clearMainContainer(container) {
+function clearMainContainer() {
 	let mainContainer = document.getElementById('main-container');
+
 	if (mainContainer.hasChildNodes) {
 		mainContainer.childNodes.forEach(node => node.remove());
 	}
 }
 
 function newsItemContainerFactory(data) {
-	let container = document.createElement('div');
-	container.setAttribute('class', 'news-item-container');
+	let newsItemContainer = document.createElement('div');
+	newsItemContainer.setAttribute('class', 'news-item-container');
 	let itemTitle = `<h4 class="news-title">${data.title}</h4>`;
 	let newsImage = `<img class="news-image" src="${data.urlToImage}" alt="${
 		data.title
 	}">`;
 	let readMore = `<a class="news-link" href="${data.url}">read more ...</a>`;
 	let itemDescription = `<p class="news-description">${data.description}</p>`;
-	container.innerHTML = newsImage + itemTitle + itemDescription + readMore;
+	newsItemContainer.innerHTML =
+		newsImage + itemTitle + itemDescription + readMore;
 
-	return container;
+	return newsItemContainer;
 }
 
 function createErrorMessageContainer() {
-	let container = document.createElement('div');
-	container.innerHTML = `<h2 class="error-message">Sorry, something went wrong;( Maybe choose another news portal</h2>`;
+	let errorMessageContainer = document.createElement('div');
+	errorMessageContainer.innerHTML = `<h2 class="error-message">Sorry, something went wrong;( Maybe choose another news portal</h2>`;
 
-	return container;
+	return errorMessageContainer;
 }
 
 // default News Page
