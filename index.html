@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get news page</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/reset.css">
+</head>
+<body>
+    <div class="wrapper-container">
+        <header>
+            <h1 class="news-header">News Page</h1>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item active" onclick="getNews('google-news')">
+                        <a href="#google-news">Google News</a>
+                    </li>
+                    <li class="nav-item" onclick="getNews('bbc-news')">BBC News</li>
+                    <li class="nav-item" onclick="getNews('cnn')">CNN</li>
+                    <li class="nav-item"onclick="getNews('mtv-news')">MTV News</li> 
+                    <li class="nav-item" onclick="getNews('time')">Time</li>
+                </ul>
+            </nav>
+        </header>
+        <main id="main-container" class="main-container"></main>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
