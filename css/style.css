@@ -115,3 +115,16 @@
 	padding-top: 50px;
 	font-size: 32px;
 }
+
+.copyright {
+	text-align: center;
+}
+
+.copyright a {
+	padding: 20px 0;
+	color: grey;
+}
+
+.copyright a:hover {
+	color: #8c4849;
+}
