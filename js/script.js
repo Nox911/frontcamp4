@@ -1,4 +1,14 @@
-function getNews(source) {
+let navListContainer = document.getElementById('nav-list');
+navListContainer.addEventListener('click', onNavClick);
+
+function onNavClick(element) {
+	let source = element.target.getAttribute('data-source');
+
+	navToggle(element.target);
+	getNews(source);
+}
+
+function getNews(source = 'google-news') {
 	fetch(
 		`https://newsapi.org/v1/articles?source=${source}&apiKey=8d9cd797251f4fc4a24f983a029f67cc`
 	)
@@ -76,5 +86,17 @@ function createErrorMessageContainer() {
 	return errorMessageContainer;
 }
 
-// default News Page
-getNews('google-news');
+function navToggle(element) {
+	if (!element.classList.contains('active')) {
+		let navItems = document.getElementsByClassName('nav-item');
+		for (let item of navItems) {
+			if (item.classList.contains('active')) {
+				item.classList.remove('active');
+			}
+		}
+		element.classList.add('active');
+	}
+}
+
+// get News Page at page load
+getNews();
