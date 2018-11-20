@@ -1,40 +1,45 @@
 {
-	"name": "frontcamp4",
-	"version": "1.0.0",
-	"description": "FrontCamp4 courses",
-	"main": "index.js",
-	"dependencies": {
-		"eslint-staged": "^1.0.1"
-	},
-	"devDependencies": {
-		"husky": "^1.1.4",
-		"lint-staged": "^8.0.4",
-		"prettier": "1.15.2"
-	},
-	"scripts": {
-		"precommit": "lint-staged",
-		"prettier": "prettier --single-quote --use-tabs --trailing-comma es5 --write \"./**/*.js\"",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Nox911/frontcamp4.git"
-	},
-	"author": "Alexandr Ogarkov",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/Nox911/frontcamp4/issues"
-	},
-	"homepage": "https://github.com/Nox911/frontcamp4#readme",
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"lint-staged": {
-		"*.{js,json,css,md}": [
-			"prettier --single-quote --use-tabs --trailing-comma es5 --write",
-			"git add"
-		]
-	}
+    "name": "frontcamp4",
+    "version": "1.0.0",
+    "description": "FrontCamp4 courses",
+    "main": "index.js",
+    "dependencies": {
+        "@babel/polyfill": "^7.0.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.1.5",
+        "@babel/core": "^7.1.6",
+        "@babel/preset-env": "^7.1.6",
+        "husky": "^1.1.4",
+        "lint-staged": "^8.0.4",
+        "prettier": "1.15.2"
+    },
+    "scripts": {
+        "precommit": "lint-staged",
+        "prettier": "prettier --single-quote --tab-width 4 --trailing-comma es5 --write \"./**/*.{css,js,html,json}\"",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "babel src -d dist --presets @babel/env",
+        "watch": "babel src -d dist --presets @babel/env -w"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Nox911/frontcamp4.git"
+    },
+    "author": "Alexandr Ogarkov",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Nox911/frontcamp4/issues"
+    },
+    "homepage": "https://github.com/Nox911/frontcamp4#readme",
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,json,css,md, html}": [
+            "prettier --single-quote --tab-width 4 --trailing-comma es5 --write",
+            "git add"
+        ]
+    }
 }
