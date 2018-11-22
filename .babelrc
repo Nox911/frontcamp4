@@ -1,14 +1,7 @@
 {
     "presets": [
         ["@babel/env", {
-            "useBuiltIns": "entry",
-            "loose": false,
-            "spec": false,
-            "uglify": false,
-            "debug": false,
-            "modules": false,
-            "include": [],
-            "exclude": []
+            "useBuiltIns": false
         }]
     ]
 }
