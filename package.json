@@ -4,7 +4,8 @@
     "description": "FrontCamp4 courses",
     "main": "index.js",
     "dependencies": {
-        "@babel/polyfill": "^7.0.0"
+        "@babel/polyfill": "^7.0.0",
+        "whatwg-fetch": "^3.0.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.1.5",
@@ -18,8 +19,8 @@
         "precommit": "lint-staged",
         "prettier": "prettier --single-quote --tab-width 4 --trailing-comma es5 --write \"./**/*.{css,js,html,json}\"",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "babel src -d dist --presets @babel/env",
-        "watch": "babel src -d dist --presets @babel/env -w"
+        "build": "babel src -d dist",
+        "watch": "babel src -d dist -w"
     },
     "repository": {
         "type": "git",
