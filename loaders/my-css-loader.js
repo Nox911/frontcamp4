@@ -5,5 +5,5 @@ module.exports = function(source) {
 
     console.log('My custom css loader work!');
 
-    return source.replace(/px/g, options.unit);
+    return options.unit ? source.replace(/px/g, options.unit) : source;
 };
