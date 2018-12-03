@@ -41,7 +41,7 @@ module.exports = {
                     {
                         loader: 'my-css-loader',
                         options: {
-                            unit: 'pt',
+                            // unit: 'pt',
                         },
                     },
                     'postcss-loader',

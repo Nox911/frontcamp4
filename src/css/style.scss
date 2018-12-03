@@ -1,6 +1,7 @@
 $main-color: #a34b4a;
 $additional-color: #fff;
 $link-color: #808080;
+$popup-background-color: #909090;
 
 li {
     list-style: none;
@@ -141,3 +142,48 @@ li {
         color: $main-color;
     }
 }
+
+.modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 100%;
+    height: 400px;
+    max-height: 100%;
+    /* все что мы уже выше описали */
+    z-index: 10;
+  }
+
+  .modal {
+      background-color: $additional-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  /* отступы */
+    padding: 20px;
+  /* разрешим скролить */
+    overflow: auto;
+    
+    &.closed {
+        display: none;
+    }
+  }
+   
+  .modal-overlay {
+    background-color: $popup-background-color;
+    z-index: 5;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    opacity: .7;
+    
+    &.closed {
+        display: none;
+    }
+  }
