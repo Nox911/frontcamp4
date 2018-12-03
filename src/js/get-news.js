@@ -1,13 +1,6 @@
 import { addElementToMainContainer } from './create-news-container';
 import { clearMainContainer } from './clear-news-container';
 
-// Polyfill forEach for Objects
-if (
-    typeof NodeList.prototype.forEach !== 'function' &&
-    typeof Array.prototype.forEach === 'function'
-)
-    NodeList.prototype.forEach = Array.prototype.forEach;
-
 export async function getNews(source = 'google-news') {
     try {
         const response = await fetch(

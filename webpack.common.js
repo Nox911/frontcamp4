@@ -9,7 +9,6 @@ module.exports = {
     output: {
         filename: '[name].[hash].js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: './',
     },
     optimization: {
         splitChunks: {
@@ -22,14 +21,15 @@ module.exports = {
             },
         },
     },
+    resolveLoader: {
+        modules: ['node_modules', path.resolve(__dirname, 'loaders')],
+    },
     module: {
         rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                },
+                use: 'babel-loader',
             },
             {
                 test: /\.(css|scss)$/,
@@ -38,6 +38,12 @@ module.exports = {
                     'style-loader',
                     MiniCssExtractPlugin.loader,
                     'css-loader',
+                    {
+                        loader: 'my-css-loader',
+                        options: {
+                            unit: 'pt',
+                        },
+                    },
                     'postcss-loader',
                     'sass-loader',
                 ],
