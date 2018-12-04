@@ -1,9 +1,12 @@
 import { addElementToMainContainer } from './create-news-container';
 import { clearMainContainer } from './clear-news-container';
+import { NewsFactory } from './news-factory';
+
+const news = new NewsFactory();
 
 export async function getNews(source = 'google-news') {
     try {
-        const response = await fetch(
+        const response = await news.get(
             `https://newsapi.org/v1/articles?source=${source}&apiKey=8d9cd797251f4fc4a24f983a029f67cc`
         );
         if (response.status !== 200) {
@@ -24,6 +27,6 @@ export async function getNews(source = 'google-news') {
     } catch (err) {
         clearMainContainer();
         addElementToMainContainer('error');
-        console.log(JSON.parse(err.message));
+        console.log(err.message);
     }
 }
