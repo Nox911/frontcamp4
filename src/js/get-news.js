@@ -7,6 +7,10 @@ export async function getNews(source = 'google-news') {
             `https://newsapi.org/v1/articles?source=${source}&apiKey=8d9cd797251f4fc4a24f983a029f67cc`
         );
         if (response.status !== 200) {
+            const errorResponse = await response.json();
+            import('./modal-notification').then(modalNotificationModule =>
+                modalNotificationModule.openModal(errorResponse)
+            );
             throw new Error(
                 `Error : ${response.statusText}, status: ${response.status}`
             );
@@ -20,6 +24,6 @@ export async function getNews(source = 'google-news') {
     } catch (err) {
         clearMainContainer();
         addElementToMainContainer('error');
-        console.log(err.message);
+        console.log(JSON.parse(err.message));
     }
 }
