@@ -5,9 +5,9 @@ const confirmButton = document.getElementById('modal-button');
 
 confirmButton.addEventListener('click', toggleModal);
 
-export function openModal(err) {
+export function openModal(message) {
     toggleModal();
-    modalText.innerHTML = `Sorry, ${err.message}`;
+    modalText.innerHTML = `Sorry, ${message}`;
 }
 
 function toggleModal() {

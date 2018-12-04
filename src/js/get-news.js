@@ -11,12 +11,8 @@ export async function getNews(source = 'google-news') {
         );
         if (response.status !== 200) {
             const errorResponse = await response.json();
-            import('./modal-notification').then(modalNotificationModule =>
-                modalNotificationModule.openModal(errorResponse)
-            );
-            throw new Error(
-                `Error : ${response.statusText}, status: ${response.status}`
-            );
+
+            throw new Error(errorResponse.message);
         }
         const data = await response.json();
         if (data.status === 'error' && !data.articles) {
@@ -25,6 +21,9 @@ export async function getNews(source = 'google-news') {
         clearMainContainer();
         addElementToMainContainer('news', data.articles);
     } catch (err) {
+        import('./modal-notification').then(modalNotificationModule =>
+            modalNotificationModule.openModal(err.message)
+        );
         clearMainContainer();
         addElementToMainContainer('error');
         console.log(err.message);
