@@ -2,7 +2,7 @@ export function onNavClick(element) {
     const source = element.target.getAttribute('data-source');
 
     navToggle(element.target);
-    import('./../model/app.model').then(getNewsModule =>
+    import('./../app.model').then(getNewsModule =>
         getNewsModule.getNews(source)
     );
 }

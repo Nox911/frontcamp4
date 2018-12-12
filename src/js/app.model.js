@@ -1,3 +1,6 @@
+import ImageNotFound from './../img/no_image_found.png';
+import { renderNewsList, renderErrorMessage } from './news/news.controller';
+
 const fetchProxy = new Proxy(fetch, {
     apply: function(target, thisArg, argumentsList) {
         console.log(
@@ -10,7 +13,7 @@ const fetchProxy = new Proxy(fetch, {
     },
 });
 
-export class NewsFactory {
+class NewsFactory {
     constructor(options = {}) {
         this.options = options;
     }
@@ -31,10 +34,7 @@ export class NewsFactory {
     }
 }
 
-import ImageNotFound from './../../img/no_image_found.png';
-import { renderNewsList, renderErrorMessage } from './../news/news.controller';
-
-let news = new NewsFactory();
+const news = new NewsFactory();
 
 export async function getNews(source) {
     try {
@@ -53,7 +53,7 @@ export async function getNews(source) {
         renderNewsList(prepareData(data.articles));
     } catch (err) {
         renderErrorMessage();
-        import('./../modal/modal.controller.js').then(modalController =>
+        import('./modal/modal.controller.js').then(modalController =>
             modalController.renderModal(err.message)
         );
         console.log(err.message);
