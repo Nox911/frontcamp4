@@ -1,0 +1,123 @@
+$main-color: #a34b4a;
+$additional-color: #fff;
+$link-color: #808080;
+
+li {
+    list-style: none;
+}
+
+.wrapper-container {
+    margin: 0 auto;
+    max-width: 1240px;
+    padding: 0 10px;
+    min-width: 300px;
+}
+
+.news-header {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.nav-list {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    & li {
+        text-align: center;
+    }
+}
+
+.nav-item {
+    background-color: $main-color;
+    border-bottom: 2px solid $additional-color;
+    box-sizing: border-box;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    flex-grow: 1;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+
+    &:last-child {
+        border-right: none;
+    }
+
+    &:hover {
+        background-color: $main-color;
+        color: $additional-color;
+        cursor: pointer;
+    }
+
+    &.active {
+        background-color: $main-color;
+        color: $additional-color;
+    }
+}
+
+.news-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1240px;
+    min-width: 300px;
+}
+
+.news-item-container {
+    align-items: center;
+    border-bottom: 1px solid $link-color;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    padding: 15px 10px;
+    width: 270px;
+}
+
+.news-image {
+    height: 150px;
+    object-fit: cover;
+    width: 250px;
+}
+
+.news-title {
+    font-weight: bold;
+    margin: 0;
+    padding-top: 10px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* Webkit browser only(author experimental */
+.news-description {
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    padding-top: 10px;
+    text-indent: 20px;
+    text-overflow: ellipsis;
+    user-select: none;
+}
+
+.news-link {
+    align-self: flex-end;
+    color: $link-color;
+    display: block;
+    text-align: right;
+
+    &:active,
+    &:visited {
+        color: $link-color;
+        
+    }
+
+    &:hover {
+        color: $main-color;
+    }
+}

@@ -1,0 +1,28 @@
+ <div class="wrapper-container">
+    <header>
+        <h1 class="news-header">News Page</h1>
+        <nav>
+            <ul class="nav-list">
+                {{#each articles}}
+                    <li>
+                        <a class="nav-item" href="/news/{{this.id}}">
+                            {{this.title}}
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+        </nav>
+    </header>
+    <main class="main-container">
+        <div class="news-list-container">
+            {{#each articles}}
+                <div class="news-item-container">
+                    <img class="news-image" src="{{this.urlToImage}}" alt="{{this.title}}">
+                    <h4 class="news-title">{{this.title}}</h4>
+                    <p class="news-description">{{this.description}}</p>
+                    <a class="news-link" href="{{this.url}}">read more ...</a>
+                </div>
+            {{/each}}
+        </div>
+    </main>
+</div>
