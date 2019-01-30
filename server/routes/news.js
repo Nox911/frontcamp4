@@ -1,68 +1,54 @@
-const fs = require('fs');
 const express = require('express');
 const router = express.Router();
-const news = require('../news/news.json');
+const baseURL = '/api/news';
+
 let logger = require('../public/js/logger');
+const {
+    getAllNews,
+    getSingleNews,
+    updateNews,
+    createNews,
+    deleteNews,
+} = require('../public/js/newsService');
 
-router.get('/news', function(req, res) {
+// Get all news
+router.get(`${baseURL}`, function(req, res) {
     requestLog(req);
-    fs.readFile('./news/news.json', (err, content) => {
-        if (err) {
-            return console.error('Error with reading file');
-        }
-        const parsedNewsJson = JSON.parse(content);
-        res.render('index', {
-            title: 'News',
-            articles: parsedNewsJson.articles,
-        });
-    });
+    const data = getAllNews();
+    res.status(200).json(data);
 });
 
-router.get('/news/:id', function(req, res) {
+// Get single news by Id
+router.get(`${baseURL}/:id`, function(req, res) {
     requestLog(req);
-    const articleId = req.params.id;
-    if (!news.articles[articleId]) {
-        res.render('error', {
-            title: 'Something went wrong!',
-            error: {
-                status: 'Article not found for this path',
-                stack: 'Change path or go to home page',
-            },
-        });
-        return console.error('Article not found for this path');
-    }
-    res.render('index', {
-        title: 'News',
-        articles: [news.articles[articleId]],
-    });
+    const newsId = req.params.id;
+    const data = getSingleNews(newsId);
+    res.status(200).json(data);
 });
 
-router.post('/news', function(req, res) {
+// Create a new news
+router.post(`${baseURL}`, function(req, res) {
     requestLog(req);
-    res.status(200).json({ type: req.method });
+    const dataContent = req.body;
+    const data = createNews(dataContent);
+    res.status(200).json(data);
 });
 
-router.post('/news/:id', function(req, res) {
+// Update a news with Id
+router.put(`${baseURL}/:id`, function(req, res) {
     requestLog(req);
-    const articleId = req.params.id;
-    res.status(200).json({ type: req.method, id: articleId });
+    const dataId = req.params.id;
+    const dataContent = req.body;
+    const data = updateNews(dataId, dataContent);
+    res.status(200).json(data);
 });
 
-router.put('/news/:id', function(req, res) {
+// Delete news by Id
+router.delete(`${baseURL}/:id`, function(req, res) {
     requestLog(req);
-    const articleId = req.params.id;
-    res.status(200).json({ type: req.method, id: articleId });
-});
-
-router.delete('/news/:id', function(req, res) {
-    requestLog(req);
-    const articleId = req.params.id;
-    res.status(200).json({ type: req.method, id: articleId });
-});
-
-router.get('/', function(req, res) {
-    requestLog(req);
-    res.redirect('/news');
+    const id = req.params.id;
+    const data = deleteNews(id);
+    res.status(200).json(data);
 });
 
 const requestLog = req => {

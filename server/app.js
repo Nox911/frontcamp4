@@ -4,6 +4,11 @@ const sassMiddleware = require('node-sass-middleware');
 const app = express();
 const port = 3000;
 const newsRouter = require('./routes/news');
+const bodyParser = require('body-parser');
+const errorMiddleware = require('./public/js/errorMiddleware');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use('/', newsRouter);
 
@@ -20,6 +25,8 @@ app.use(
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+app.use(errorMiddleware);
 
 app.listen(port, function(error) {
     if (error) {
