@@ -1,6 +1,10 @@
-const news = require('../../news/news.json');
+// const news = require('../../news/news.json');
 
-const getAllNews = () => news;
+let News = require('../../models/news');
+
+const getAllNews = () => {
+    return News.find();
+};
 
 const getSingleNews = id => {
     if (!news.articles[id]) {

@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
+
 const baseURL = '/api/news';
 
 let logger = require('../public/js/logger');
+
 const {
     getAllNews,
     getSingleNews,
@@ -14,8 +16,7 @@ const {
 // Get all news
 router.get(`${baseURL}`, function(req, res) {
     requestLog(req);
-    const data = getAllNews();
-    res.status(200).json(data);
+    getAllNews().then(data => res.status(200).json(data));
 });
 
 // Get single news by Id
