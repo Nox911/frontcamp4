@@ -30,7 +30,7 @@ const newsSchema = mongoose.Schema(
         },
     },
     {
-        collection: 'news',
+        collection: 'mocknews',
     }
 );
 

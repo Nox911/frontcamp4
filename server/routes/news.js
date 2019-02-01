@@ -11,6 +11,7 @@ const {
     updateNews,
     createNews,
     deleteNews,
+    createMockNews,
 } = require('../public/js/newsService');
 
 // Get all news
@@ -23,8 +24,7 @@ router.get(`${baseURL}`, function(req, res) {
 router.get(`${baseURL}/:id`, function(req, res) {
     requestLog(req);
     const newsId = req.params.id;
-    const data = getSingleNews(newsId);
-    res.status(200).json(data);
+    getSingleNews(newsId).then(data => res.status(200).json(data));
 });
 
 // Create a new news
@@ -33,6 +33,12 @@ router.post(`${baseURL}`, function(req, res) {
     const dataContent = req.body;
     const data = createNews(dataContent);
     res.status(200).json(data);
+});
+
+// Put to db mockNews
+router.post(`${baseURL}/createMockNews`, function(req, res) {
+    requestLog(req);
+    createMockNews().then(data => res.status(200).json(data));
 });
 
 // Update a news with Id
