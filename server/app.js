@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const errorMiddleware = require('./public/js/errorMiddleware');
 const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 
 const newsRouter = require('./routes/news');
 const port = 3000;
