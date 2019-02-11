@@ -1,0 +1,12 @@
+.app-news-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.app-news-item {
+    width: 100%;
+    box-shadow: 0 0 10px 0 black;
+    margin: 10px 0;
+    border-radius: 5px;
+}
