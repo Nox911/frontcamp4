@@ -1,11 +1,23 @@
 <div class="app-actions-panel-container">
-  <select>
-    <option>Google</option>
-    <option>BBC</option>
-  </select>
-  <label>
-    <input type="checkbox">
-    Show only my news
-  </label>
-  <button>Create own news</button>
+  <div class="actions-panel-select">
+    <select >
+      <option disabled selected>Select news...</option>
+      <option value="google">Google</option>
+      <option value="bbc">BBC</option>
+    </select>
+  </div>
+  <div class="actions-panel-filter">
+    <label>
+      <input type="search" name="" id="" placeholder="search"> Search News
+    </label>
+  </div>
+  <div class="actions-panel-check">
+      <label>
+          <input type="checkbox">
+          Show only my news
+        </label>
+  </div>
+  <div class="actions-panel-button">
+      <button>Create own news</button>
+  </div>
 </div>
