@@ -16,4 +16,11 @@ export class NewsItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  onEdit(id: number) {
+    console.log(`go to edit page of news with id:${id}`);
+  }
+
+  onDelete(id) {
+    console.log(`news with id:${id} deleting...`);
+  }
 }
