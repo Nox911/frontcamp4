@@ -1,3 +1,16 @@
 :host {
     grid-area: footer;
 }
+
+.copyright {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.copyright a {
+    color: grey;
+}
+
+.copyright a:hover {
+    color: #8c4849;
+}
