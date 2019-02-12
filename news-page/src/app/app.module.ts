@@ -9,8 +9,9 @@ import { NewsItemComponent } from './components/news-item/news-item.component';
 import { ContentComponent } from './components/content/content.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ActionsPanelComponent } from './components/actions-panel/actions-panel.component';
+import { NewsInterceptor } from './core/interceptors/http.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,13 @@ import { ActionsPanelComponent } from './components/actions-panel/actions-panel.
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NewsInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
