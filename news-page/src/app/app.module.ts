@@ -1,16 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { NewsListComponent } from './components/news-list/news-list.component';
-import { NewsItemComponent } from './components/news-item/news-item.component';
-import { ContentComponent } from './components/content/content.component';
-import { FooterComponent } from './components/footer/footer.component';
+import {
+  HeaderComponent,
+  NewsListComponent,
+  NewsItemComponent,
+  ContentComponent,
+  FooterComponent,
+  ActionsPanelComponent,
+  NewsDetailComponent,
+  NewsFormComponent
+} from './components';
 
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ActionsPanelComponent } from './components/actions-panel/actions-panel.component';
 import { NewsInterceptor } from './core/interceptors/http.interceptor';
 
 @NgModule({
@@ -21,7 +25,9 @@ import { NewsInterceptor } from './core/interceptors/http.interceptor';
     NewsItemComponent,
     ContentComponent,
     FooterComponent,
-    ActionsPanelComponent
+    ActionsPanelComponent,
+    NewsDetailComponent,
+    NewsFormComponent
   ],
   imports: [
     BrowserModule,

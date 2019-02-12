@@ -3,9 +3,16 @@
   <div class="news-item-text-container">
     <h4>{{newsItem.title}}</h4>
     <p>{{newsItem.description}}</p>
+    <a routerLink="{{newsItem.id}}">See whole article</a>
   </div>
   <div class="news-item-actions-container">
-    <button *ngIf="newsItem.isEditable" class="news-item-actions-edit" (click)="onEdit(newsItem.id)">EDIT</button>
-    <button *ngIf="newsItem.isEditable" class="news-item-actions-delete" (click)="onDelete(newsItem.id)">DELETE</button>
+    <button
+      *ngIf="newsItem.editable"
+      class="news-item-actions-edit"
+      (click)="onEdit(newsItem.id)"
+    >
+      EDIT
+    </button>
+    <button *ngIf="newsItem.editable" class="news-item-actions-delete" (click)="onDelete(newsItem.id)">DELETE</button>
   </div>
 </div>
