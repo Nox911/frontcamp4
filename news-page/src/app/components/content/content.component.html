@@ -1,2 +1,6 @@
-<app-actions-panel></app-actions-panel>
-<app-news-list></app-news-list>
+<app-actions-panel
+    (newsSource)="setNewsSource($event)"
+></app-actions-panel>
+<app-news-list
+    [newsSource]="newsSource"
+></app-news-list>

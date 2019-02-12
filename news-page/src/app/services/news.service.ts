@@ -16,9 +16,9 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  getNews(): Observable<NewsModel[]> {
+  getNews(newsSource: string): Observable<NewsModel[]> {
     return this.http
-        .get<any>('https://newsapi.org/v1/articles?source=google-news&apiKey=8d9cd797251f4fc4a24f983a029f67cc')
+        .get<any>(`https://newsapi.org/v1/articles?source=${newsSource}&apiKey=8d9cd797251f4fc4a24f983a029f67cc`)
             .pipe(
                 map(news => this.parseData(news.articles))
             );

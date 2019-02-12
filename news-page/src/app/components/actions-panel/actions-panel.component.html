@@ -1,14 +1,16 @@
 <div class="app-actions-panel-container">
   <div class="actions-panel-select">
-    <select >
+    <select (change)="setNewsSource($event)">
       <option disabled selected>Select news...</option>
-      <option value="google">Google</option>
-      <option value="bbc">BBC</option>
+      <option value="google-news">Google</option>
+      <option value="bbc-news">BBC</option>
+      <option value="cnn">CNN</option>
+      <option value="mtv-news">MTV</option>
     </select>
   </div>
   <div class="actions-panel-filter">
     <label>
-      <input type="search" name="" id="" placeholder="search"> Search News
+      <input type="text" name="" id="" placeholder="search" (input)="filterNews($event)"> Search News
     </label>
   </div>
   <div class="actions-panel-check">

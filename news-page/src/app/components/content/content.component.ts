@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
+  newsSource = 'google-news';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setNewsSource(querySource: string) {
+    console.log(querySource);
+    this.newsSource = querySource;
   }
 
 }
