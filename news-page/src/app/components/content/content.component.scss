@@ -1,5 +1,14 @@
 :host {
     grid-area: content;
-    // max-width: 1280px;
-    // margin: 10px auto;
+}
+
+.app-source-title {
+    text-align:center;
+    height: 30px;
+    width: 100%;
+    line-height: 30px;
+    vertical-align: middle;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 20px 0;
 }

@@ -1,6 +1,6 @@
 <div class="app-actions-panel-container">
   <div class="actions-panel-select">
-    <select (change)="setNewsSource($event)">
+    <select (change)="setNewsSource($event)" [disabled]="ownNewsSource">
       <option disabled selected>Select news...</option>
       <option value="google-news">Google</option>
       <option value="bbc-news">BBC</option>
@@ -15,7 +15,7 @@
   </div>
   <div class="actions-panel-check">
       <label>
-          <input type="checkbox">
+          <input type="checkbox" (change)="isOwnNewsSource()">
           Show only my news
         </label>
   </div>

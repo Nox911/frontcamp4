@@ -27,7 +27,7 @@ export class NewsService {
   private parseData(newsList: NewsModel[]) {
     return newsList.map((newsItem: NewsModel, index) => {
       return {
-        id: index,
+        id: 0,
         title: newsItem.title || 'no title',
         description: newsItem.description || 'no description',
         urlToImage: newsItem.urlToImage || null,

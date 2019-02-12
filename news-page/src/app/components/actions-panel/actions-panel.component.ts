@@ -8,17 +8,33 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class ActionsPanelComponent implements OnInit {
   @Output() newsSource = new EventEmitter();
 
+  ownNewsSource = false;
+  currentNewsSource: string;
+
   constructor() { }
 
   ngOnInit() {
   }
 
   setNewsSource(event: any) {
+    this.currentNewsSource = event.target.value;
     this.newsSource.emit(event.target.value);
   }
 
   filterNews(query: string) {
     console.log(query);
+  }
+
+  isOwnNewsSource() {
+    this.ownNewsSource = !this.ownNewsSource;
+    if (this.ownNewsSource) {
+        this.newsSource.emit('google-news');
+      } else {
+        if (this.currentNewsSource) {
+          this.newsSource.emit(this.currentNewsSource);
+        }
+      }
+    console.log(this.ownNewsSource);
   }
 
 }
