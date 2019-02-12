@@ -1,3 +1,22 @@
 :host {
     grid-area: header;
 }
+
+.app-header-container {
+    background-color: rgb(218, 218, 218);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:100%;
+    border-radius: 0 0 5px 5px;
+}
+
+.app-header-logo {
+    margin-left:30px;
+    font-size: 24px;
+}
+
+.app-header-authenticate {
+    border-radius: 5px;
+    margin-right:20px;
+}
