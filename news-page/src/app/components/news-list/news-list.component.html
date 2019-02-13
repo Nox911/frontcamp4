@@ -1,5 +1,5 @@
 <ul class="app-news-list">
-  <li *ngFor="let newsItem of newsList | async | slice:0:3" class="app-news-item">
+  <li *ngFor="let newsItem of newsList | async" class="app-news-item">
       <app-news-item [newsItem]="newsItem"></app-news-item>
   </li>
 </ul>

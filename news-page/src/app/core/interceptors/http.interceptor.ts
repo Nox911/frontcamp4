@@ -7,8 +7,7 @@ import { Observable } from 'rxjs';
 export class NewsInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // request interceptor
-    console.log('hello');
-    console.log(req.method);
+    console.log(`${req.method} ${req.url} ${Date()}`);
 
     return next.handle(req);
   }

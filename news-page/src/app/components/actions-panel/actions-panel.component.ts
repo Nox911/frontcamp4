@@ -34,7 +34,6 @@ export class ActionsPanelComponent implements OnInit {
           this.newsSource.emit(this.currentNewsSource);
         }
       }
-    console.log(this.ownNewsSource);
   }
 
 }
