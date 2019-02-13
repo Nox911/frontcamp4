@@ -9,7 +9,7 @@ export class ActionsPanelComponent implements OnInit {
   @Output() newsSource = new EventEmitter();
 
   ownNewsSource = false;
-  currentNewsSource: string;
+  currentNewsSource = 'google-news';
 
   constructor() { }
 
@@ -28,7 +28,7 @@ export class ActionsPanelComponent implements OnInit {
   isOwnNewsSource() {
     this.ownNewsSource = !this.ownNewsSource;
     if (this.ownNewsSource) {
-        this.newsSource.emit('google-news');
+        this.newsSource.emit('myNews');
       } else {
         if (this.currentNewsSource) {
           this.newsSource.emit(this.currentNewsSource);
