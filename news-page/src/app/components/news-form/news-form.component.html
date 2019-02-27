@@ -1,5 +1,47 @@
-<p>
-  news-from-page for news with id:{{newsId | async}}
-  <br>
-  <button routerLink="/news">Back</button>
-</p>
+<form [formGroup]="newsFormGroup" class="app-news-form-container" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <div class="form-item">
+      <label>
+        <span class="form-item-label">ID:</span>
+        <input type="text" [formControl]="idControl"/>
+      </label>
+    </div>
+    <div class="form-item">
+      <label>
+        <span class="form-item-label">Author:</span>
+        <input type="text" [formControl]="authorControl"/>
+        <span *ngIf="authorControl.errors?.required" class="form-item-required">*Required</span>
+      </label>
+    </div>
+    <div class="form-item">
+      <label>
+        <span class="form-item-label">Title:</span>
+        <input type="text" [formControl]="titleControl"/>
+        <span *ngIf="titleControl.errors?.required" class="form-item-required">*Required</span>
+      </label>
+    </div>
+  </div>
+    <div class="form-item">
+      <label>
+        <span class="form-item-label">Description:</span>
+        <input type="text" [formControl]="descriptionControl"/>
+      </label>
+    </div>
+    <div class="form-item">
+      <label>
+        <span class="form-item-label">Url:</span>
+        <input type="text" [formControl]="urlControl"/>
+        <span *ngIf="urlControl.errors?.required" class="form-item-required">*Required</span>
+      </label>
+    </div>
+    <div class="form-item">
+      <label>
+        <span class="form-item-label">UrlToImage:</span>
+        <input type="text" [formControl]="urlToImageControl"/>
+        <span *ngIf="urlToImageControl.errors?.required" class="form-item-required">*Required</span>
+      </label>
+    </div>
+  <button type="submit" [disabled]="newsFormGroup.invalid || newsFormGroup.pristine">Save</button> 
+</form>
+
+<button routerLink="/news">Back</button>

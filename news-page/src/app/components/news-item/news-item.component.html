@@ -1,7 +1,7 @@
 <div class="app-news-item-container">
   <img class="news-item-image" src="{{newsItem.urlToImage}}" alt="{{newsItem.title}}">
   <div class="news-item-text-container">
-    <h4>{{newsItem.title}}</h4>
+    <h4>{{newsItem.title}}<span class="news-item-text-date">{{newsItem.publishedAt | date}}</span></h4>
     <p>{{newsItem.description}}</p>
     <a routerLink="{{newsItem.id}}">See whole article</a>
   </div>

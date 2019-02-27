@@ -33,6 +33,27 @@ export class NewsService {
 
   }
 
+  getNewsById(id: number): Observable<NewsModel> {
+    return this.getNews(this.ownNewsSource)
+      .pipe(
+        map(newsList => newsList.filter(newsItem => newsItem.id === id)[0])
+        );
+  }
+
+  updateNews(data): void {
+    console.log('News updated:');
+    console.log(data);
+  }
+
+  createNews(data): void {
+    console.log('News Created:');
+    console.log(data);
+  }
+
+  deleteNews(id: number): void {
+    console.log(`news with id:${id} deleting...`);
+  }
+
   private parseData(newsList: NewsModel[], isOwnNewsSource) {
     return newsList.map((newsItem: NewsModel, index) => {
       return {
@@ -41,7 +62,8 @@ export class NewsService {
         title: newsItem.title || 'no title',
         description: newsItem.description || 'no description',
         urlToImage: newsItem.urlToImage || null,
-        url: newsItem.url || null
+        url: newsItem.url || null,
+        publishedAt: newsItem.publishedAt || null
       };
     });
   }

@@ -6,4 +6,5 @@ export interface NewsModel {
     urlToImage: string;
     url: string;
     publishedAt?: string;
+    content?: string;
 }
