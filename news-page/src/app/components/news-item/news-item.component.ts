@@ -11,7 +11,7 @@ import { NewsService } from '../../services/news.service';
 })
 export class NewsItemComponent implements OnInit {
 
-  @Input() newsItem: NewsModel[];
+  @Input() newsItem: NewsModel;
 
   constructor(private router: Router, private newsService: NewsService) { }
 

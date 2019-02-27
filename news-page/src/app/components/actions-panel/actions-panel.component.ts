@@ -1,20 +1,15 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-actions-panel',
   templateUrl: './actions-panel.component.html',
   styleUrls: ['./actions-panel.component.scss']
 })
-export class ActionsPanelComponent implements OnInit {
+export class ActionsPanelComponent {
   @Output() newsSource = new EventEmitter();
 
   ownNewsSource = false;
   currentNewsSource = 'google-news';
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   setNewsSource(event: any) {
     this.currentNewsSource = event.target.value;
