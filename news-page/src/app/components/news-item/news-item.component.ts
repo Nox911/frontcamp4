@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NewsModel } from '../../models/news.model';
+import { NewsService } from '../../services/news.service';
 
 @Component({
   selector: 'app-news-item',
@@ -12,17 +13,16 @@ export class NewsItemComponent implements OnInit {
 
   @Input() newsItem: NewsModel[];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private newsService: NewsService) { }
 
   ngOnInit() {
   }
 
   onEdit(id: number) {
-    console.log(`go to edit page of news with id:${id}`);
     this.router.navigate(['news/edit', id]);
   }
 
   onDelete(id) {
-    console.log(`news with id:${id} deleting...`);
+    this.newsService.deleteNews(id);
   }
 }
